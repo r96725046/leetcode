@@ -12,57 +12,49 @@ class Solution {
     public List<String> fullJustify(String[] words, int maxWidth) {
         int max=maxWidth;
         int count=0;
-        List<ArrayList<String>> list=new ArrayList<>();
-        ArrayList<String> cur=new ArrayList<>();
-        for(String word:words){
-            count+=word.length();
-            int space=cur.size()==0?0:cur.size()-1;
-            if((count+space)>maxWidth){
-                list.add(cur);
-                cur=new ArrayList<String>();
-                count=word.length();
-            }
-            cur.add(word);
-        }
-        list.add(cur);
-        List<String> res=new ArrayList<>();
-        
-        for(int i=0;i<list.size();i++){
-            cur=list.get(i);
-            count=0;
-            for(String word:cur)
-                count+=word.length();
-            int extra=max-(count+cur.size()-1);
-            StringBuilder sb=new StringBuilder();
-            //left justify
-            if(i==list.size()-1||cur.size()==1){
-               for(int j=0;j<cur.size();j++){
-                    sb.append(cur.get(j));
-                    if(j<cur.size()-1)
-                        sb.append(" ");
-               }
-               while(extra!=0){
-                    sb.append(" ");
-                    extra--;
-               }
-            }else{
-              int space=extra%(cur.size()-1);
-               for(int j=0;j<cur.size()-1;j++){
-                    int same=extra/(cur.size()-1);
-                    if(j<cur.size()-1){
-                        sb.append(cur.get(j)+" ");  
-                        if(j<space)same+=1;
-                        for(int k=0;k<same;k++){
+        List<String> list=new ArrayList<String>();
+        int index=0;
+        int i=0;
+        while(i<=words.length){
+            if(i==words.length||count+(i-index-1)+1+words[i].length()>max){
+                StringBuilder sb =new StringBuilder();
+                //left justification
+                if(i-index==1||i==words.length){
+                    for(int j=index;j<i;j++){
+                        sb.append(words[j]);
+                        if(j<i-1)
                             sb.append(" ");
-                        }
                     }
-
-               }
-               sb.append(cur.get(cur.size()-1));  
+                    while(sb.length()<max)
+                        sb.append(" ");
+                }else{
+                    int space=(max-count)/(i-index-1);
+                    int extra=(max-count)%(i-index-1);
+                    for(int j=index;j<i;j++){
+                        sb.append(words[j]);
+                        if(j<i-1){
+                            for(int k=0;k<space;k++)
+                                sb.append(" ");
+                            if(extra>0){
+                                sb.append(" ");
+                                extra--;
+                            }
+                        }
+                    } 
+                }
+                list.add(sb.toString());
+                index=i;
+                if(i<words.length)
+                    count=words[i].length();
+            }else{
+                count+=words[i].length();
             }
-            res.add(sb.toString());
+            i++;
         }
-        return res;
+
+
+
+        return list;
     }
 }
 // @lc code=end
