@@ -13,6 +13,7 @@ class Solution {
         int mid=0;
         while(l<=r){
             mid=l+(r-l)/2;
+            //if min is not nums[0]
             if(mid>0&&nums[mid]<nums[mid-1])
                 break;
 

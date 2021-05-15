@@ -15,10 +15,13 @@ class Solution {
         List<String> list=new ArrayList<String>();
         int index=0;
         int i=0;
+        //i  0 - Array.length
         while(i<=words.length){
+            //End of array or 
+            //Word + space + next word + next space
             if(i==words.length||count+(i-index-1)+1+words[i].length()>max){
                 StringBuilder sb =new StringBuilder();
-                //left justification
+                //Left justification
                 if(i-index==1||i==words.length){
                     for(int j=index;j<i;j++){
                         sb.append(words[j]);
@@ -27,6 +30,7 @@ class Solution {
                     }
                     while(sb.length()<max)
                         sb.append(" ");
+                //Middle justification
                 }else{
                     int space=(max-count)/(i-index-1);
                     int extra=(max-count)%(i-index-1);

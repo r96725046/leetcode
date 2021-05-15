@@ -16,6 +16,7 @@ class Solution {
         while(i<s.length()){
             char c=s.charAt(i);
             //number is postive so that no need to check 1st sign
+            //First 0-9 then +-*/
             if(c>='0'&&c<='9'){
                 int tmp=0;
                 while(i<s.length()){

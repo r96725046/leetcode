@@ -14,12 +14,12 @@ class Solution {
         boolean[] dp=new boolean[s.length()];
         
         for(int i=0;i<s.length();i++){
-       
+            // j -> i
             for(int j=0;j<=i;j++){
                 String sub=s.substring(j,i+1);
                 //leetcode
                 //..etcode
-                //...code check j-1==true
+                //...code check && previous word j-1==true 
                 if(wordDict.contains(sub)&&(j==0||dp[j-1]))
                 {
                     dp[i]=true;

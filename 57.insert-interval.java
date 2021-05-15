@@ -10,6 +10,9 @@ class Solution {
         
         int[] cur=newInterval;
         List<int[]> in=new ArrayList<>();
+        //1. newInterval before cur Interval
+        //2. newUnterval after cur Interval
+        //3. overlap
         for(int[] interval:intervals){
 
             if(cur[1]<interval[0]){
