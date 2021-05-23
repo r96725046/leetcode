@@ -9,18 +9,16 @@ class Solution {
     public int lengthOfLIS(int[] nums) {
         
         int[] dp=new int[nums.length];
+        int max=0;
         for(int i=nums.length-1;i>=0;i--){
+            dp[i]=1;
             for(int j=nums.length-1;j>=i;j--){
                 if(nums[j]>nums[i])
                     dp[i]=Math.max(dp[i],dp[j]+1);
             }
+            max=Math.max(max,dp[i]);
         }
-        int max=0;
-        for(int v:dp)
-            max=Math.max(max,v);
-        return max+1;
-
-
+        return max;
     }
 }
 // @lc code=end
