@@ -16,6 +16,7 @@ class Solution {
             res.add(cur);
             return;
         }
+        //startsWith
         for(String word:wordDict){
             if(s.startsWith(word)){
                 String tmp="";
