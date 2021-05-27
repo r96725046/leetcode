@@ -23,7 +23,6 @@ class Solution {
                     }else  if(dp[j]+1==dp[i]){ 
                         count[i]+=count[j];
                     }
-                    //
                 }
             }
             max=Math.max(max,dp[i]);
