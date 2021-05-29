@@ -7,6 +7,9 @@
 // @lc code=start
 class NumMatrix {
 
+    // 1 2  1 3  1 3
+    // 3 4  3 7  4 10
+    //4-2-3+1
     int[][] sum;
     public NumMatrix(int[][] matrix) {
         sum=new int[matrix.length+1][matrix[0].length+1];

@@ -10,6 +10,7 @@ class LRUCache {
     int cap;
     HashMap<Integer,Integer> map=new HashMap<>();
     Queue<Integer> queue=new LinkedList<>();
+    //Queue.remove
     public LRUCache(int capacity) {
         cap=capacity;
         map=new HashMap<>();
