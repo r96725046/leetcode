@@ -6,6 +6,7 @@
 
 // @lc code=start
 class Solution {
+    //1. hashmap & 2 direction
     public int longestConsecutive(int[] nums) {
         HashSet<Integer> set=new HashSet<Integer>();
 
