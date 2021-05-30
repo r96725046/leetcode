@@ -15,8 +15,8 @@ class Node{
         }
 }
 class Trie {
-    
-    
+    // *** 
+    //boolean isWord
     Node head;
     /** Initialize your data structure here. */
     public Trie() {

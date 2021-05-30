@@ -6,6 +6,8 @@
 import java.util.*;
 // @lc code=start
 class Solution {
+    //1.int[26]
+    //2.#concate string
     public List<List<String>> groupAnagrams(String[] strs) {
         HashMap<String,ArrayList<String>> map=new HashMap<>();
         List<List<String>> res=new ArrayList<>();

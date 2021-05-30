@@ -7,8 +7,7 @@
 // @lc code=start
 class Solution {
     public int minDistance(String word1, String word2) {
-        
-
+        // ***
         int[][] dp=new int[word1.length()+1][word2.length()+1];
         //init word lenght
         for(int i=0;i<dp.length;i++)
