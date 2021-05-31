@@ -6,13 +6,17 @@
 import java.util.*;
 // @lc code=start
 class Solution {
+    // **
+    // 1
     public int[][] insert(int[][] intervals, int[] newInterval) {
         
         int[] cur=newInterval;
         List<int[]> in=new ArrayList<>();
+        //0. sort
         //1. newInterval before cur Interval
         //2. newUnterval after cur Interval
         //3. overlap
+        //4. add cur
         for(int[] interval:intervals){
 
             if(cur[1]<interval[0]){

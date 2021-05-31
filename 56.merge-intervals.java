@@ -6,6 +6,8 @@
 import java.util.*;
 // @lc code=start
 class Solution {
+    // **
+    //1. sort
     public int[][] merge(int[][] intervals) {
         if(intervals.length<=1)
             return intervals;     

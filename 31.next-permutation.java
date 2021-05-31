@@ -7,7 +7,10 @@
 // @lc code=start
 class Solution {
     public void nextPermutation(int[] nums) {
-        
+        // ***
+        //1. find i+1>i
+        //2. from end to start > i
+        //3. reverse     
         
         int i;
         //first i<i+1

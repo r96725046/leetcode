@@ -9,7 +9,8 @@ class Solution {
     public int maximalSquare(char[][] matrix) {
         int[][] dp=new int[matrix.length+1][matrix[0].length+1];
 
-        // One of this cell's neighbor is 0, then this cell will be 0
+        //1.One of this cell's neighbor is 0, then this cell will be 0
+        //2.User matrix i+1,j+1
         int max=Integer.MIN_VALUE;
         for(int i=0;i<matrix.length;i++){
             for(int j=0;j<matrix[0].length;j++){
