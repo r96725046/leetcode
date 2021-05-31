@@ -27,36 +27,38 @@ class Node {
 
 class Solution {
     // ***
-    HashMap<Integer,Node> map=new HashMap<>();
+    // 1.hashmap save new nodes, queue save old nodes
+    // 1
     public Node cloneGraph(Node node) {
-            if(node==null)return node;
-            Queue<Node> q=new LinkedList<Node>();
-            q.offer(node);
-            
-            Node root=new Node(node.val);
-            map.put(node.val,root);
-            
-            while(!q.isEmpty()){
+        if(node==null)return node;
+        HashMap<Integer,Node> map=new HashMap<>();
+        Queue<Node> q=new LinkedList<>();
 
-                Node head=q.poll();
-                Node newHead=map.get(head.val);
-                for(Node sub:head.neighbors)
-                {   
-                    Node n=null;
-                    if(!map.containsKey(sub.val)){
-                        q.offer(sub);
-                        n=new Node(sub.val);        
-                        map.put(sub.val,n);
-                    }else{
-                        n=map.get(sub.val);
-                    }
-                    // ***
-                    newHead.neighbors.add(n);
+        q.offer(node);
+        Node root=new Node(node.val);
+        map.put(node.val,root);
+        while(!q.isEmpty()){
+
+            Node cur=q.poll();
+            Node head=map.get(cur.val);
+            List<Node> list=cur.neighbors;
+            for(Node sub:list){
+
+                Node newNode;
+                if(map.containsKey(sub.val)){
+                    newNode=map.get(sub.val);
+                }else{
+                    newNode=new Node(sub.val);
+                    map.put(sub.val,newNode);
+                    q.offer(sub);
                 }
-
+                head.neighbors.add(newNode);
             }
-            return root;
+
+        }
+        return root;
     }
+   
 }
 // @lc code=end
 
