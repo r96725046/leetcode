@@ -6,6 +6,8 @@
 
 // @lc code=start
 class Solution {
+    // **
+    // 1
     public boolean wordBreak(String s, List<String> wordDict) {
         
         if(s==null||s.length()==0)

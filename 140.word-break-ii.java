@@ -6,6 +6,11 @@
 
 // @lc code=start
 class Solution {
+    // ***
+    // 1.startsWith
+    // 2.tmp string
+    // 3.cache
+    // 1
     List<String> res =new ArrayList<String>();
     public List<String> wordBreak(String s, List<String> wordDict) {
         dfs(s,wordDict,"");
@@ -16,7 +21,7 @@ class Solution {
             res.add(cur);
             return;
         }
-        //startsWith
+        
         for(String word:wordDict){
             if(s.startsWith(word)){
                 String tmp="";
