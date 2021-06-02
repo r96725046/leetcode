@@ -6,7 +6,10 @@
 
 // @lc code=start
 class Solution {
-    //Reverse array & k=k%nums.length
+    //1.k=k%nums.length
+    //2.Reverse all
+    //3.reverse 0 ,k-1 
+    //4.reverse k,end
     public void rotate(int[] nums, int k) {
         k=k%nums.length;
         reverse(nums,0,nums.length-1);

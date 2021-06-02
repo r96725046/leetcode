@@ -10,7 +10,7 @@ class Solution {
         // ***
         //1. find i+1>i
         //2. from end to start > i
-        //3. reverse     
+        //3. reverse  0 or i+1
         
         int i;
         //first i<i+1

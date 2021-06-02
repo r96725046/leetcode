@@ -6,6 +6,9 @@
 
 // @lc code=start
 class Solution {
+    // ** 
+    // 1.mid , r
+    // 2.mid , target & r, target
     public int search(int[] nums, int target) {
         
         if(nums.length==0)
