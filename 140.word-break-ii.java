@@ -9,29 +9,34 @@ class Solution {
     // ***
     // 1.startsWith
     // 2.tmp string
-    // 3.cache
+    // 3.cache***
     // 1
-    List<String> res =new ArrayList<String>();
+    HashMap<String,List<String>> map=new HashMap<>();
     public List<String> wordBreak(String s, List<String> wordDict) {
-        dfs(s,wordDict,"");
-        return res;
+        return dfs(s,wordDict);
     }
-    public void dfs(String s,List<String> wordDict, String cur){
+    public List<String> dfs(String s,List<String> wordDict){
+        if(map.containsKey(s))
+            return map.get(s);
+     
+        List<String> list=new ArrayList<>();
         if(0==s.length()){
-            res.add(cur);
-            return;
+            list.add("");
+            return list;
         }
-        
         for(String word:wordDict){
             if(s.startsWith(word)){
-                String tmp="";
-                if(cur.length()==0)
-                    tmp=word;
-                else
-                    tmp=cur+ " " + word;
-                dfs(s.substring(word.length()),wordDict,tmp);
+                List<String> sub=dfs(s.substring(word.length()),wordDict);
+                for(String str:sub)
+                {
+                    if(str.length()>0)
+                        str=" "+str;
+                    list.add(word+str);
+                }
             }
         }
+        map.put(s,list);
+        return list;
     }
 }
 // @lc code=end
