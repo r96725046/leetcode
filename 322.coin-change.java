@@ -6,6 +6,9 @@
 
 // @lc code=start
 class Solution {
+    // ***
+    //1.at most number of coins, set arr=amount+1
+    //2.if res=amount+1 return -1;
     public int coinChange(int[] coins, int amount) {
         int[] dp=new int[amount+1];
         //as most number of coins
