@@ -8,37 +8,38 @@
 class Solution {
     public void nextPermutation(int[] nums) {
         // ***
-        //1. find i+1>i
-        //2. from end to start > i
+        //1. find i+1>i break
+        //2. from end to start > i break
         //3. reverse  0 or i+1
-        
-        int i;
-        //first i<i+1
-        for(i=nums.length-2;i>=0;i--){
-            if(nums[i]<nums[i+1])
+        //1
+        int index=-1;
+        for(int i=nums.length-2;i>=0;i--){
+            if(nums[i]<nums[i+1]){
+                index=i;
                 break;
+            }
         }
-        int j;
-        if(i>=0){
-            //first j>i from end of list
-            for(j=nums.length-1;j>i;j--)
-            {
-                if(nums[j]>nums[i]){
-                    swap(nums,i,j);
+         
+        if(index>=0){
+            for(int i=nums.length-1;i>=0;i--){
+                if(nums[i]>nums[index]){
+                    swap(nums,i,index);
                     break;
                 }
             }
-        }    
-        reverse(nums,i<0?0:i+1,nums.length-1);
+           
+        }
+       
+        reverse(nums,index==-1?0:index+1,nums.length-1);
+    }
+    public void reverse(int[] nums,int i,int j){
+        while(i<j)
+            swap(nums,i++,j--);
     }
     public void swap(int[] nums,int i,int j){
         int tmp=nums[i];
         nums[i]=nums[j];
         nums[j]=tmp;
-    }
-    public void reverse(int[] nums,int i,int j){
-        while(i<j)
-            swap(nums,i++,j--);
     }
 }
 // @lc code=end

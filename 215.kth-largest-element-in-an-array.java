@@ -6,7 +6,7 @@
 
 // @lc code=start
 class Solution {
-    //1. p=end
+    //1. p=end index=i=start
     //2. move items >p to left
     //3. swap index and p
     public int findKthLargest(int[] nums, int k) {
