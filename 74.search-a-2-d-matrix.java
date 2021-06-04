@@ -7,6 +7,8 @@
 // @lc code=start
 class Solution {
     //Start from 0,matrix[0].length-1
+    //O(log(m+n))
+    //O(mn)
     public boolean searchMatrix(int[][] matrix, int target) {
         
         int i=0;
