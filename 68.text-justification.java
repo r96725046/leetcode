@@ -15,7 +15,7 @@ class Solution {
         List<String> list=new ArrayList<String>();
         int index=0;
         int i=0;
-        //i  0 - Array.length
+        //i  0 - Array.length . i for next word,so space = i- index - 1
         while(i<=words.length){
             //End of array or 
             //Word + space + next word + next space
