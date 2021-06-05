@@ -6,6 +6,15 @@
 
 // @lc code=start
 class Solution {
+    // ***
+    // 1
+    // Skip spaces
+    // Check '+'/'-'
+    // Check digital(can contain ".")
+    // Check exponent
+    //  a. Check '+'/'-'
+    //  b. Check digital(cannot contain ".")
+    // Check space
     public boolean isNumber(String s) {
         
         int i=0;
