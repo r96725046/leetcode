@@ -17,7 +17,7 @@ class Solution {
 
             for(int j=0;j<h[0].length;j++)
             {
-                if(//dfs(v,h,Integer.MAX_VALUE,i,j,true))//&&
+                if(dfs(v,h,Integer.MAX_VALUE,i,j,true)&&
                    dfs(v,h,Integer.MAX_VALUE,i,j,false))
                 {
                     List<Integer> ans=new ArrayList<Integer>();
@@ -52,7 +52,7 @@ class Solution {
                dfs(visited,h,h[i][j],i-1,j,p)||
                dfs(visited,h,h[i][j],i,j-1,p);
         
-       // visited[i][j]=false;
+        visited[i][j]=false;
         return res;
     }
     
