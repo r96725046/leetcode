@@ -9,6 +9,7 @@ class Solution {
     // ** 
     // 1.mid , r
     // 2.mid , target & r, target
+    // 1
     public int search(int[] nums, int target) {
         
         if(nums.length==0)

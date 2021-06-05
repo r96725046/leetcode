@@ -6,6 +6,9 @@
 
 // @lc code=start
 class Solution {
+    // **
+    // r--
+    // 1
     public boolean search(int[] nums, int target) {
         
         int l=0;

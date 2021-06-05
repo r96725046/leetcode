@@ -6,6 +6,8 @@
 
 // @lc code=start
 class Solution {
+    // **
+    // 1
     public int findMin(int[] nums) {
     
         int l=0;
