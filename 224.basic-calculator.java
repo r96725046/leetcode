@@ -8,6 +8,8 @@ import javax.lang.model.util.ElementScanner6;
 
 // @lc code=start
 class Solution {
+    // **
+    // 1. )=>stack.pop()*num+stack.pop()
     public int calculate(String s) {
         
         int sign=1;
