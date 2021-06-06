@@ -7,6 +7,8 @@
 // @lc code=start
 class Solution {
     // ***
+    //1.max (right,down) + cur
+    //2.min (cur , 1.)
     public int calculateMinimumHP(int[][] dungeon) {
         int m=dungeon.length;
         int n=dungeon[0].length;
