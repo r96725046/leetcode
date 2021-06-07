@@ -10,19 +10,22 @@ class Solution {
     //2. map.get(c)==0 => counter--;
     //3. if counter==0 l++ =>map++ counter++ 
     public String minWindow(String s, String t) {
-        
+        if(s.length()<t.length())return"";
         HashMap<Character,Integer> map = new HashMap<>();
 
         for(int i=0;i<t.length();i++){
             char c=t.charAt(i);
-            map.put(c, map.getOrDefault(c,0) + 1);
+            int v=0;
+            if(map.containsKey(c))
+                v=map.get(c);
+            map.put(c,v+1);
         }
         int count=map.size();
 
         int l=0;
         int r=0;
-        int min=Integer.MAX_VALUE;
-        String res="";
+        int len=Integer.MAX_VALUE;
+        int head=0;
         while(r<s.length()){
 
             char c=s.charAt(r);
@@ -40,15 +43,17 @@ class Solution {
                         count++;      
                     }
                 }
-                if(r-l<min){
-                    min=r-l;
-                    res=s.substring(l,r);
+                if(r-l<len){
+                    len=r-l;
+                    head=l;
                 }
                 l++;
             }
            
         }
-        return res;
+        if(len==Integer.MAX_VALUE)
+            return "";
+        return s.substring(head,head+len);
     }
 }
 // @lc code=end
