@@ -9,7 +9,6 @@ class Solution {
     public int calculate(String s) {
         //1.First 0-9 then +-*/
         Stack<Integer> stack=new Stack<>();
-        int sum=0;
         char sign='+';
         int i=0;
         //use for instead of
@@ -28,17 +27,15 @@ class Solution {
                     i++;
                 }
                 i--;
-                sum+=tmp;
                 
                 if(sign=='+')
-                    stack.push(sum);
+                    stack.push(tmp);
                 else if (sign=='-')
-                    stack.push(-sum);
+                    stack.push(-tmp);
                 else if(sign=='*')
-                    stack.push(stack.pop()*sum);
-                else if(sign=='/')
-                    stack.push(stack.pop()/sum);
-                sum=0;
+                    stack.push(stack.pop()*tmp);
+                else
+                    stack.push(stack.pop()/tmp);
             }else if(c==' '){
                 i++;
                 continue;
