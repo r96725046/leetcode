@@ -28,7 +28,8 @@ class TrieNode{
 
 }
 class Solution {
-
+    // ****
+    // words =>trie
     List<String> res=new ArrayList<>();
     public List<String> findWords(char[][] board, String[] words) {
         TrieNode root=new TrieNode();

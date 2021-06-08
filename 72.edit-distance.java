@@ -9,7 +9,7 @@ class Solution {
     public int minDistance(String word1, String word2) {
         // ***
         //1.init word lenght
-        //2.i for deletion , j for insert
+        //2.i for deletion , j for insert, ij for change
         //3.be careful about word index
         //4.1 + Min of 3
         int[][] dp=new int[word1.length()+1][word2.length()+1];
