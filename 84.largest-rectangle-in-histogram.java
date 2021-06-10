@@ -7,6 +7,8 @@
 // @lc code=start
 class Solution {
     // **
+    // 1.for+while
+    // 2.i++ p--, i-- p++
     public int largestRectangleArea(int[] heights) {
 
         int[] left=new int[heights.length];

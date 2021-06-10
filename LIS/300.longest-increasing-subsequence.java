@@ -7,7 +7,9 @@
 // @lc code=start
 class Solution {
     public int lengthOfLIS(int[] nums) {
-        
+        // ***
+        // n^2 dp
+        // nlogn
         int[] dp=new int[nums.length];
         int max=0;
         for(int i=nums.length-1;i>=0;i--){
