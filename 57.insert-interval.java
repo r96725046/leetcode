@@ -7,7 +7,7 @@ import java.util.*;
 // @lc code=start
 class Solution {
     // **
-    // 1
+    // 2
     public int[][] insert(int[][] intervals, int[] newInterval) {
         
         int[] cur=newInterval;
