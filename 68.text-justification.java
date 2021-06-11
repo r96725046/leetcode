@@ -9,6 +9,12 @@ import java.util.List;
 
 // @lc code=start
 class Solution {
+    // ***
+    // 1.i is the next word, not in this line
+    // 2.i<=arr.length
+    // 3.if i==arr.length || count + i-index-1 + 1 space + word.length() =>justification!
+    // 4.Left
+    // 5 Middle
     public List<String> fullJustify(String[] words, int maxWidth) {
         int max=maxWidth;
         int count=0;

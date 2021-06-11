@@ -6,7 +6,8 @@
 
 // @lc code=start
 class Solution {
-    // ***
+    // ****
+    // k-- 0~k-1
     // k/n-1 to get index
     // k%n-1 to get next position
     public String getPermutation(int n, int k) {
