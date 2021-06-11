@@ -6,15 +6,17 @@
 
 // @lc code=start
 class NumMatrix {
-
+    // ***
+    //row+1 col1 for (0,0,0,0)
+    //1.+sum[i][j-1]
+    //2.+sum[i-1][j]
     // 1 2  1 3  1 3
     // 3 4  3 7  4 10
     //4-2-3+1
     int[][] sum;
     public NumMatrix(int[][] matrix) {
         sum=new int[matrix.length+1][matrix[0].length+1];
-        //1.+sum[i][j-1]
-        //2.+sum[i-1][j]
+
 
         for(int i=1;i<sum.length;i++){
             for(int j=1;j<sum[0].length;j++){
