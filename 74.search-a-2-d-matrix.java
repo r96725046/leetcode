@@ -9,6 +9,8 @@ class Solution {
     //Start from 0,matrix[0].length-1
     //O(log(m+n))
     //O(mn)
+    //1.int mid=l+(r-l)/2;
+    //2.int v=matrix[mid/col][mid%col];
     public boolean searchMatrix(int[][] matrix, int target) {
         
         int l=0;

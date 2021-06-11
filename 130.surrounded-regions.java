@@ -6,9 +6,12 @@
 
 // @lc code=start
 class Solution {
+    // **
+    //1.Use #
+    //2.Run from 4 edges
+    // 1
     public void solve(char[][] board) {
-        //1.Use #
-        //2.Run from 4 edges
+
 
         for(int i=0;i<board.length;i++ ){
 
