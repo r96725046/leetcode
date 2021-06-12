@@ -9,9 +9,9 @@ class Solution {
     public void nextPermutation(int[] nums) {
         // ***
         //1. find i+1>i break
-        //2. from end to start > i break
-        //3. reverse  0 or i+1
-        //1
+        //2. from end to 0 > nums[i] break swap(i,index)
+        //3. reverse 0 or i+1
+        //2
         int index=-1;
         for(int i=nums.length-2;i>=0;i--){
             if(nums[i]<nums[i+1]){
