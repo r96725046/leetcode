@@ -13,16 +13,12 @@ class Solution {
         int row=matrix.length;
         int col=matrix[0].length;
         for(int i=0;i<row;i++){
-           for(int j=i;j<col;j++){
+           for(int j=i;j<col;j++)
                swap(matrix,i,j,j,i);
-           }
-        for(int i=0;i<row;i++){
-            for(int j=0;j<col/2;j++){
+           
+        for(int i=0;i<row;i++)
+            for(int j=0;j<col/2;j++)
                 swap(matrix,i,j,i,col-j-1);
-            }
-        }
-
-
     }
     public void swap(int[][] matrix,int i,int j,int x,int y){
         int tmp=matrix[i][j];
