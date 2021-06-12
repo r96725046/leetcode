@@ -6,6 +6,10 @@
 import java.util.*;
 // @lc code=start
 class Solution {
+    // dfs
+    // ***
+    // 1.cur.size()>1 add
+    // 2.hasmap for the same nums[i]
     List<List<Integer>> list=new ArrayList<List<Integer>>();
     public List<List<Integer>> findSubsequences(int[] nums) {
         traversal(nums,0,new ArrayList<Integer>());

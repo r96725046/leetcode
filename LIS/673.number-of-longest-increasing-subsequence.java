@@ -6,6 +6,7 @@
 
 // @lc code=start
 class Solution {
+    // ****
     public int findNumberOfLIS(int[] nums) {
         int[] dp=new int[nums.length];
         int[] count=new int[nums.length];
