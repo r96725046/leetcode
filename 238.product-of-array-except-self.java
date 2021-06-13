@@ -8,7 +8,9 @@
 class Solution {
 
     // nums  1  2  3  4
-    // res  24 12 4  1 
+    // res   24 12 4  1 
+    // tmp 1 1*1  1*2  2*3 24
+    // res   24*1 12*1 4*2 6*1 end
     // 1.nums[i+1]*res[i+1]
     // 2.tmp =1 ,res*=tmp and tmp*=nums[i] for next i
     public int[] productExceptSelf(int[] nums) {
