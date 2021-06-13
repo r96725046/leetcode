@@ -13,7 +13,6 @@ class Solution {
         return partition(nums,0,nums.length-1,k);
     }
     public int partition(int[] nums,int l,int r,int k){
-        if(l==r)return nums[l];
         int p=nums[r];
         int index=l;
 
@@ -37,7 +36,6 @@ class Solution {
         int tmp=nums[l];
         nums[l]=nums[r];
         nums[r]=tmp;
-
     }
 }
 // @lc code=end
