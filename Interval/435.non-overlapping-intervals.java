@@ -9,6 +9,7 @@ class Solution {
     // **
     // 1.< count++
     // 2. interval=smaller end
+    // 56 57
     public int eraseOverlapIntervals(int[][] intervals) {
         int count=0;
         Arrays.sort(intervals,(x,y)->Integer.compare(x[0],y[0]));
