@@ -10,6 +10,10 @@ class Solution {
     //2.Reverse all
     //3.reverse 0 ,k-1 
     //4.reverse k,end
+    // k=3
+    // 123456
+    // 654321
+    // 456123 
     public void rotate(int[] nums, int k) {
         k=k%nums.length;
         reverse(nums,0,nums.length-1);

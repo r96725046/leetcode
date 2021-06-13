@@ -6,6 +6,9 @@
 
 // @lc code=start
 class MedianFinder {
+    //1.PriorityQueue
+    //2. min     min 1   min     min 2   min 2     min 2 3   min 3
+    //   max 1 > max   > max 1 > max 1 > max 3 1 > max 1   > max 2 1
     PriorityQueue<Integer> max;
     PriorityQueue<Integer> min;
     /** initialize your data structure here. */
