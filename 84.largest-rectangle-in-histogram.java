@@ -7,6 +7,7 @@
 // @lc code=start
 class Solution {
     // **
+    // left && right arr =>max and min
     // 1.for+while
     // 2.i++ p--, i-- p++
     public int largestRectangleArea(int[] heights) {

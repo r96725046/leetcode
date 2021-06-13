@@ -9,7 +9,8 @@ import javax.lang.model.util.ElementScanner6;
 // @lc code=start
 class Solution {
     // **
-    // 1. )=>stack.pop()*num+stack.pop()
+    // 1. )=>stack.pop()*num+stack.pop()   
+    //  pre=>stack.pop()+cur=>(stack.pop()*(cur))
     public int calculate(String s) {
         
         int sign=1;

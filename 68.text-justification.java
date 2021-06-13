@@ -12,9 +12,14 @@ class Solution {
     // ***
     // 1.i is the next word, not in this line
     // 2.i<=arr.length
-    // 3.if i==arr.length || count + i-index-1 + 1 space + word.length() =>justification!
-    // 4.Left
-    // 5 Middle
+    // 3.Check Length 
+    //   a.i==arr.length
+    //   b.count + i-index-1 + 1 space + word.length()
+    // 4.Left Justification
+    // 5 Middle Justification
+    //   a.slot = i-index-1
+    //   b.space = max-count/slot
+    //   c.extra = max-count%slot
     public List<String> fullJustify(String[] words, int maxWidth) {
         int max=maxWidth;
         int count=0;
