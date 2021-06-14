@@ -6,6 +6,11 @@
 
 // @lc code=start
 class Solution {
+    // ***
+    // 1.cache
+    // 2. return 0;
+    // 3. matrix[i][j]<=pre
+    // 4. cache[i][j]=max+1
     public int longestIncreasingPath(int[][] matrix) {
 
         int[][] cache=new int[matrix.length][matrix[0].length];
