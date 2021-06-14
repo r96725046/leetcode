@@ -21,6 +21,10 @@ class Node {
 */
 
 class Solution {
+    // **
+    // 1. Node dummy
+    // 2. Node dummyRunner
+    // 3. return dummy.next
     public Node copyRandomList(Node head) {
 
         Node runner=head;

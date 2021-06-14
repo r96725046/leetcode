@@ -21,6 +21,10 @@ class Node {
 */
 
 class Solution {
+    // **
+    // next=map.get
+    // random=map.get
+    // 1
     public Node copyRandomList(Node head) {
 
         HashMap<Node,Node> map=new HashMap<>();
