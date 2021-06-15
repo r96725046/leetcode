@@ -12,7 +12,7 @@ class Solution {
     public int findKthLargest(int[] nums, int k) {
         return partition(nums,0,nums.length-1,k);
     }
-    public int partition(int[] nums,int l,int r,int k){
+    private int partition(int[] nums,int l,int r,int k){
         int p=nums[r];
         int index=l;
 
@@ -26,16 +26,17 @@ class Solution {
         swap(nums,index,r);
         if(index==k-1)
             return nums[index];
-        else if(index<k)
-            return partition(nums,index+1,r,k);
-        else
+        else if(index>k-1)
             return partition(nums,l,index-1,k);
-
+        else
+            return partition(nums,index+1,r,k);
+           
     }
-    public void swap(int[] nums,int l,int r){
-        int tmp=nums[l];
-        nums[l]=nums[r];
-        nums[r]=tmp;
+    private void swap(int[] nums,int i,int j)
+    {
+        int tmp=nums[i];
+        nums[i]=nums[j];
+        nums[j]=tmp;
     }
 }
 // @lc code=end
