@@ -24,36 +24,49 @@ class Solution {
     // swing in Array 1 between 0~len1
     // 1.if(len1>len2)return findMedianSortedArrays(nums2,nums1);
     // 2.if(len1==0)return ((double)nums2[(len2-1)/2]+(double)nums2[len2/2])/2;
+    // 3.i>0 && al>br =>i move left
+    // 4.i<len && bl>ar =>i move right 
     public double findMedianSortedArrays(int[] nums1, int[] nums2) {
         int len1=nums1.length;
         int len2=nums2.length;
         if(len1>len2)return findMedianSortedArrays(nums2,nums1);
         if(len1==0)return ((double)nums2[(len2-1)/2]+(double)nums2[len2/2])/2;
-        int l=0;
-        int r=len1;
-        int index1;
-        int index2;
-        while(l<=r){
-            index1=l+(r-l)/2;
-            index2=(len1+len2+1)/2-index1;
+        int[] a=nums1;
+        int[] b=nums2;
+        int imin=0;
+        int imax=len1;
+        int i;
+        int j;
+        while(imin<=imax){
+            i=imin+(imax-imin)/2;
+            j=(len1+len2+1)/2-i;
 
-            double l1=index1==0?Integer.MIN_VALUE:nums1[index1-1];
-            double l2=index2==0?Integer.MIN_VALUE:nums2[index2-1];
-            double r1=index1==len1?Integer.MAX_VALUE:nums1[index1];
-            double r2=index2==len2?Integer.MAX_VALUE:nums2[index2];
-
-            if(l1>r2)
-                r=index1-1;
-            else if(l2>r1)
-                l=index1+1;
+            if(i>0&&a[i-1]>b[j]){
+                imax=i-1;
+            }else if(i<len1&&b[j-1]>a[i])
+                imin=i+1;
             else{
-                
+
+                double left;
+                if(i==0)
+                    left=b[j-1];
+                else if(j==0)
+                    left=a[i-1];
+                else 
+                    left=Math.max(a[i-1],b[j-1]);
+
                 if((len1+len2)%2==1)
-                    return Math.max(l1,l2);
-                else{
-                    double res=Math.max(l1,l2)+Math.min(r1,r2);
-                    return res/2;
-                }
+                        return left;
+
+                double right;
+                if(i==len1)
+                    right=b[j];
+                else if(j==len2)
+                    right=a[i];
+                else
+                    right=Math.min(a[i],b[j]);
+                
+                return (left+right)/2;
             }
 
         }
