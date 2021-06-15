@@ -9,34 +9,30 @@ class Solution {
     //1.int[26]
     //2.#concate string
     public List<List<String>> groupAnagrams(String[] strs) {
-        HashMap<String,ArrayList<String>> map=new HashMap<>();
         List<List<String>> res=new ArrayList<>();
-        for(int i=0;i<strs.length;i++){
 
+        HashMap<String,List<String>> map=new HashMap<>();
+
+        for(String str:strs){
             int[] arr=new int[26];
 
-            for(int j=0;j<strs[i].length();j++){
-                int c=strs[i].charAt(j)-'a';
-                arr[c]++;
-            }
+            for(int i=0;i<str.length();i++)
+                arr[str.charAt(i)-'a']++;
             StringBuilder sb=new StringBuilder();
-            for(int k:arr){
-                sb.append(k);
-                sb.append("#");
-            }
+            for(int i:arr)
+                sb.append(i).append("#");
             String key=sb.toString();
-            if(map.containsKey(key)){
-                ArrayList<String> list=map.get(key);
-                list.add(strs[i]);
-                map.put(key,list);
-            }else{
-                map.put(key,new ArrayList<String>());
-                map.get(key).add(strs[i]);
-            }
+            List<String> group=new ArrayList<>();
+            if(map.containsKey(key))
+                group=map.get(key);
+            else
+                group=new ArrayList<>();
+            group.add(str);
+            map.put(key,group);
         }
-        for(String key:map.keySet()){
+        for(String key:map.keySet())
             res.add(map.get(key));
-        }
+
         return res;
 
     }
