@@ -9,6 +9,9 @@ import java.io.*;
 import java.util.*;
 
 public class Solution {
+	// ***
+	//int end = findEnd(s.substring(i));
+	//int tmp = calculate(s.substring(i + 1, i + end));
 	public static int calculate(String s) {
 		Stack<Integer> stack = new Stack<>();
 		int i = 0;

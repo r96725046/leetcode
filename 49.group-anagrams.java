@@ -8,6 +8,7 @@ import java.util.*;
 class Solution {
     //1.int[26]
     //2.#concate string
+    //1
     public List<List<String>> groupAnagrams(String[] strs) {
         List<List<String>> res=new ArrayList<>();
 
