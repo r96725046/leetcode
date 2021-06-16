@@ -7,9 +7,15 @@
 // @lc code=start
 class Solution {
     // ****
-    // k-- 0~k-1
-    // k/n-1 to get index
-    // k%n-1 to get next position
+    // Start from 1
+    // 1.k-- 0~k-1
+    // 2.k/n-1! to get index
+    // 3.k%n-1! to get next position
+    // 1 2 3 4 , 6
+    // 5/6 0 => 1 5%6 next k 5
+    // 5/2 2 => 4 5%2 next k 1
+    // 1/1 1 => 3 1%1 next k 0
+    // 0/1 0 => 2 End 
     public String getPermutation(int n, int k) {
         k--;
 
