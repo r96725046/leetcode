@@ -7,6 +7,8 @@
 // @lc code=start
 class Solution {
     // ***
+    // Create an array
+    // Run [84] Largest Rectangle in Histogram
     public int maximalRectangle(char[][] matrix) {
         if(matrix.length==0||matrix[0].length==0)
             return 0;
