@@ -7,6 +7,8 @@
 // @lc code=start
 class Solution {
     // ****
+    // i=(min+max)/2
+    // j=(min+max+1)/2-i
     //        L1 R1 
     //  2 4 6 7  10
     //      L2 R2
