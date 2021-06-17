@@ -7,7 +7,7 @@
 // @lc code=start
 class Solution {
     // **
-    // 1.start from 1 and 2 chars
+    // 1.start from "1 and 2" chars
     // 2.maxLen=r-l-1;
     // 3.start=l+1;
     int start=0;
