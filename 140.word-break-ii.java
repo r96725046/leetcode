@@ -11,7 +11,7 @@ class Solution {
     // 2.tmp string
     // 3.cache***
     // 4.s.length()==0 list.add("")
-    // 1
+    // 2
     HashMap<String,List<String>> map=new HashMap<>();
     public List<String> wordBreak(String s, List<String> wordDict) {
        return dfs(s,wordDict);

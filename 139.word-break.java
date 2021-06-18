@@ -27,11 +27,7 @@ class Solution {
                     dp[i]=true;
                     break;
                 }
-
             }
-
-
-
         }
         return dp[s.length()-1];
 
