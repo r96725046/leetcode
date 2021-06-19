@@ -6,6 +6,11 @@
 
 // @lc code=start
 class Solution {
+    // **
+    // if mid=0
+    // else if mid=nums.length-1
+    // else if nums[mid]<nums[mid+1]
+    // else
     public int findPeakElement(int[] nums) {
         
         int l=0;

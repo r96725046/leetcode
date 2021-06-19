@@ -22,56 +22,56 @@ class Solution {
     //2 3
     //Min 4  
     //2 3 MAX
-
-    // swing in Array 1 between 0~len1
+    // https://www.youtube.com/watch?v=ScCg9v921ns
+    // swing in Array 1 between 0~"len1" because it needs i & i-1
     // 1.if(len1>len2)return findMedianSortedArrays(nums2,nums1);
-    // 2.if(len1==0)return ((double)nums2[(len2-1)/2]+(double)nums2[len2/2])/2;
-    // 3.i>0 && al>br =>i move left
-    // 4.i<len && bl>ar =>i move right 
+    // 2.*if(len1==0)return ((double)nums2[(len2-1)/2]+(double)nums2[len2/2])/2;
+    //
+    // 3.i>0 && al(i-1)>br(j) =>i move left
+    // 4.i<len && bl(j-1)>ar(i) =>i move right 
     public double findMedianSortedArrays(int[] nums1, int[] nums2) {
-        int len1=nums1.length;
-        int len2=nums2.length;
-        if(len1>len2)return findMedianSortedArrays(nums2,nums1);
-        if(len1==0)return ((double)nums2[(len2-1)/2]+(double)nums2[len2/2])/2;
+        if(nums1.length>nums2.length)
+            return findMedianSortedArrays(nums2,nums1);
+        if(nums1.length==0)
+            return ((double)nums2[(nums2.length-1)/2]+
+                    (double)nums2[nums2.length/2])/2;
         int[] a=nums1;
         int[] b=nums2;
-        int imin=0;
-        int imax=len1;
-        int i;
-        int j;
-        while(imin<=imax){
-            i=imin+(imax-imin)/2;
-            j=(len1+len2+1)/2-i;
+        int start=0;
+        int end=a.length;
+        int i,j;
+        while(start<=end){
+            i=(start+end)/2;
+            j=(a.length+b.length+1)/2-i;
 
-            if(i>0&&a[i-1]>b[j]){
-                imax=i-1;
-            }else if(i<len1&&b[j-1]>a[i])
-                imin=i+1;
+            if(i>0&&a[i-1]>b[j])
+                end=i-1;
+            else if(i<a.length&&b[j-1]>a[i])
+                start=i+1;
             else{
-
                 double left;
                 if(i==0)
                     left=b[j-1];
                 else if(j==0)
                     left=a[i-1];
-                else 
+                else
                     left=Math.max(a[i-1],b[j-1]);
 
-                if((len1+len2)%2==1)
-                        return left;
+                if((a.length+b.length)%2==1)
+                    return left;
 
                 double right;
-                if(i==len1)
+                if(i==a.length)
                     right=b[j];
-                else if(j==len2)
+                else if(j==b.length)
                     right=a[i];
                 else
                     right=Math.min(a[i],b[j]);
                 
                 return (left+right)/2;
             }
-
         }
+
         return -1;
     }
 }
