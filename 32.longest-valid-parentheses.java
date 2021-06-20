@@ -7,7 +7,8 @@
 // @lc code=start
 class Solution {
     // ***
-    // if char==')' and stack is empty, index=i
+    // 1.left=-1
+    // 2.if char==')' and stack is empty, index=i
     public int longestValidParentheses(String s) {
         int max=0;
         int left=-1;

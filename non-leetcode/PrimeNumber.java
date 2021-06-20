@@ -54,7 +54,7 @@ public class PrimeNumber {
 	}
 
 	boolean isPrime(int n) {
-		if(n <= 1)
+		if(n < 2)
 			return false;
 		if(n == 2)	// 2 is prime
 			return true;
