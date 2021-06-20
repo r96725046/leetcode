@@ -29,15 +29,20 @@ class Solution {
             dfs(root);
             return max;
     }
-    public int dfs(TreeNode node){
-        if(node==null)return 0;
-
-        int l=dfs(node.left);
-        int r=dfs(node.right);
-        int sum=Math.max(node.val,Math.max(l,r)+node.val);
-        max=Math.max(max,Math.max(node.val+l+r,sum));
+    private int dfs(TreeNode root){
+        if(root==null)
+            return 0;
+        int l=dfs(root.left);
+        int r=dfs(root.right);
+        int sum=Math.max(root.val,Math.max(root.val+l,root.val+r));
+        max=Math.max(max,Math.max(sum,root.val+l+r));
         return sum;
+        // int sub=Math.max(root.val+l,root.val+r);
+        // int curMax=Math.max(sub,Math.max(root.val,root.val+l+r));
+        // max=Math.max(max,curMax);
+        // return Math.max(root.val,sub);
     }
+
 }
 // @lc code=end
 
