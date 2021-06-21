@@ -6,6 +6,7 @@
 
 // @lc code=start
 class Solution {
+    // ****
     public int findNumberOfLIS(int[] nums) {
         int[] dp=new int[nums.length];
         int[] count=new int[nums.length];
@@ -23,6 +24,7 @@ class Solution {
                     }else  if(dp[j]+1==dp[i]){ 
                         count[i]+=count[j];
                     }
+                    //End
                 }
             }
             max=Math.max(max,dp[i]);

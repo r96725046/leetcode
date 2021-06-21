@@ -1,5 +1,12 @@
 public class AddDate {
-
+  //
+  //getDate
+  //1.feb
+  //2.filling current month
+  //3.d==0
+  //4.day+=n
+  //formatDayOrMonth
+  //getFebDays
   public static String getDate(String date, int n) {
     // date is YYYYMMDD format
     int[] daysInMonth = new int[] {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};

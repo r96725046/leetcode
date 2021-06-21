@@ -5,7 +5,7 @@ import java.util.Set;
 
 public class PrimeNumber {
 	private Set map = new HashSet();
-
+	private List<List> res=new ArrayList<>();
 	public static void main(String[] args) {
 		PrimeNumber obj = new PrimeNumber();
 		System.out.println(obj.findNumberOfWays("11373"));
@@ -14,46 +14,34 @@ public class PrimeNumber {
 	}
 
 	public int findNumberOfWays(String input) {
-		List<List<Integer>> ways = new ArrayList<>();
-		List<Integer> results = new ArrayList<Integer>();
-		findPermutations(input, results, ways);
-		return ways.size();
+		find(input, new ArrayList<>());
+		return res.size();
 	}
 
-	public void findPermutations(String suffix,
-			List<Integer> results, List<List<Integer>> resultSet) {
+	public void find(String str,List<Integer> cur) {
 		
-		if (suffix.length() == 0) {
-			resultSet.add(new ArrayList<Integer>(results));
-			System.out.println(results.toString());
+		if (str.length() == 0) {
+			res.add(new ArrayList<Integer>(cur));
+			System.out.println(cur.toString());
 			return;
 		}
-
-		for (int i = 0; i < suffix.length(); ++i) {
-			String snumber = suffix.substring(0, i + 1);
-
-			int numb = Integer.parseInt(snumber);
-			boolean isPrime = isPrimeNumber(numb);
+		for (int i = 0; i < str.length(); ++i) {
+			String sub = str.substring(0, i + 1);
+			int number = Integer.parseInt(sub);
+			boolean isPrime = isPrime(number);
 			if(isPrime){
-				results.add(numb);
-				findPermutations(suffix.substring(i + 1),	results, resultSet);
-				results.remove(results.size()-1);
+				cur.add(number);
+				find(str.substring(i + 1),	cur);
+				cur.remove(cur.size()-1);
 			}
 		}
 
 	}
 
-	public boolean isPrimeNumber(int number) {
-		if (map.contains(number)) {
+	boolean isPrime(int n) {
+		if (map.contains(n)) {
 			return true;
 		}
-		boolean isPrime = isPrime(number);
-		if(isPrime) map.add(number);
-		
-		return isPrime;
-	}
-
-	boolean isPrime(int n) {
 		if(n < 2)
 			return false;
 		if(n == 2)	// 2 is prime
@@ -66,6 +54,7 @@ public class PrimeNumber {
 			if(n % i == 0)
 				return false;
 		}
+		map.add(n);
 		return true;
 	}
 }
