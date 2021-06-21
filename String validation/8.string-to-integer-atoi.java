@@ -7,9 +7,10 @@
 // @lc code=start
 class Solution {
     public int myAtoi(String s) {
+        // ***
         //1.space 
         //2.+-
-        //3.long digit
+        //3."long digit"
 
         if(s.length()==0)return 0;
         int i=0;
