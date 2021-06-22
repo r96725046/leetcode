@@ -8,7 +8,7 @@
 class Solution {
     // ***
     // 1.left=-1
-    // 2.if char==')' and stack is empty, index=i
+    // 2.if char==')' and stack is empty(')' can't be popped), index=i 
     public int longestValidParentheses(String s) {
         int max=0;
         int left=-1;
