@@ -27,8 +27,8 @@ class Solution {
     // 1.if(len1>len2)return findMedianSortedArrays(nums2,nums1);
     // 2.*if(len1==0)return ((double)nums2[(len2-1)/2]+(double)nums2[len2/2])/2;
     //
-    // 3.i>0 && al(i-1)>br(j) =>i move left
-    // 4.i<len && bl(j-1)>ar(i) =>i move right 
+    // 3.i>0 && al(i-1)>br(j) =>i move left end=i-1
+    // 4.i<len && bl(j-1)>ar(i) =>i move right stard=i+1
     public double findMedianSortedArrays(int[] nums1, int[] nums2) {
         if(nums1.length>nums2.length)
             return findMedianSortedArrays(nums2,nums1);
