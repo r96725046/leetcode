@@ -7,10 +7,12 @@
 // @lc code=start
 class Solution {
     // **
-    // r--
+    // (nums[mid]==nums[r] ==> r--
     // 1
     public boolean search(int[] nums, int target) {
         
+        if(nums.length==0)
+            return -1;
         int l=0;
         int r=nums.length-1;
         int mid=0;
@@ -22,15 +24,19 @@ class Solution {
             else if(nums[mid]==nums[r])
                 r--;
             else if(nums[mid]<nums[r]){
-                if(target>nums[mid]&&target<=nums[r])
+                //check increasing seq only
+                if(target>nums[mid]&&target<=nums[r]){
                     l=mid+1;
-                else
+                }else{
                     r=mid-1;
+                }
             }else{
-                if(target<nums[mid]&&target>=nums[l])
+                //check increasing seq only
+                if(target<nums[mid]&&target>=nums[l]){
                     r=mid-1;
-                else
+                }else{
                     l=mid+1;
+                }
             }
         }
         return false;

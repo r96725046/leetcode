@@ -31,7 +31,7 @@ class Solution {
                     r=mid-1;
                 }
             }else{
-                 //check increasing seq only
+                //check increasing seq only
                 if(target<nums[mid]&&target>=nums[l]){
                     r=mid-1;
                 }else{
