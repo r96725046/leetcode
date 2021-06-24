@@ -8,8 +8,8 @@
 class Solution {
     // **
     // left && right arr =>find the heights[j] smaller than heights[i]
-    // 1.for+while
-    // 2.j=i-1 i++ j--,j=i+1 i-- j++
+    // 1.left[0]=-1 and right[right.length-1]=right.length;
+    // 2.for i++; j=i-1 while j--, for i--; j=i+1 while j++
     public int largestRectangleArea(int[] heights) {
 
        int[] left=new int[heights.length];
