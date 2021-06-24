@@ -9,15 +9,15 @@ class Solution {
     // ***
     // n^2 dp
     // nlogn
-    // 1.dp[i]=Math.max(dp[i],dp[j]+1);
+    // 1.i,j from end or start,dp[i]=Math.max(dp[i],dp[j]+1);
     // 2.max(max,dp[i])
     public int lengthOfLIS(int[] nums) {
 
         int[] dp=new int[nums.length];
-        int max=0;
+        int max=1;
         for(int i=nums.length-1;i>=0;i--){
             dp[i]=1;
-            for(int j=nums.length-1;j>=i;j--){
+            for(int j=nums.length-1;j>i;j--){
                 if(nums[j]>nums[i])
                     dp[i]=Math.max(dp[i],dp[j]+1);
             }

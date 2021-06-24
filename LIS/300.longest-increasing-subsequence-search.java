@@ -7,10 +7,10 @@
 // @lc code=start
 class Solution {
     // ***
-    // int[] res
-    // 1. if nums[i]>res[index] index++ put nums[i] to res[index]
-    // 2. else binary search 0~i-1 find a index for nums[i]
-    // 3. return index+1
+    // 1. "int[] res"
+    // 2. if nums[i]>res[index] index++ put nums[i] to res[index]
+    // 3. else binary search 0~i-1 find a index for "nums[i]"
+    // 4. return index+1
     public int lengthOfLIS(int[] nums) {
         if(nums.length==0)return 0;
         int[] res=new int[nums.length];
