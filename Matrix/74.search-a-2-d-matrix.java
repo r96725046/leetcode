@@ -11,6 +11,7 @@ class Solution {
     //O(mn)
     //1.int mid=l+(r-l)/2;
     //2.int v=matrix[mid/col][mid%col];
+    //1
     public boolean searchMatrix(int[][] matrix, int target) {
         
         int l=0;
