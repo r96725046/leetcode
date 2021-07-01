@@ -11,7 +11,7 @@ import java.util.List;
 class Solution {
     // ***
     // 1.i is the next word, not in this line
-    // 2.while i<=arr.length
+    // 2.while i<=arr.length,don't use String word=words[i] ***
     // 3.Check Length 
     //   a.i==arr.length ***
     //   b.count + i-index-1 + 1 space + word.length() ***
@@ -20,21 +20,20 @@ class Solution {
     //   a.slot = i-index-1
     //   b.space = max-count/slot
     //   c.extra = max-count%slot
-    // 6.count=word[i].length
+    // 6.if i<length, count=words[i].length()
+    // 7.else count+=words[i].length()
     public List<String> fullJustify(String[] words, int maxWidth) {
-        int max=maxWidth;
+        List<String> list=new ArrayList<>();
         int count=0;
-        List<String> list=new ArrayList<String>();
-        int index=0;
+        int max=maxWidth;
         int i=0;
-        //i  0 - Array.length . i for next word,so space = i- index - 1
+        int index=0;
         while(i<=words.length){
-            //End of array or 
-            //Word + space + next word + next space
             if(i==words.length||count+(i-index-1)+1+words[i].length()>max){
                 StringBuilder sb =new StringBuilder();
                 //Left justification
-                if(i-index==1||i==words.length){
+                if(i==words.length||i-index==1){
+
                     for(int j=index;j<i;j++){
                         sb.append(words[j]);
                         if(j<i-1)
@@ -42,8 +41,8 @@ class Solution {
                     }
                     while(sb.length()<max)
                         sb.append(" ");
-                //Middle justification
                 }else{
+                //Middle justification
                     int space=(max-count)/(i-index-1);
                     int extra=(max-count)%(i-index-1);
                     for(int j=index;j<i;j++){
@@ -56,7 +55,7 @@ class Solution {
                                 extra--;
                             }
                         }
-                    } 
+                    }
                 }
                 list.add(sb.toString());
                 index=i;
@@ -67,9 +66,6 @@ class Solution {
             }
             i++;
         }
-
-
-
         return list;
     }
 }
