@@ -6,18 +6,19 @@
 
 // @lc code=start
 class Solution {
+    // ***
+    // pre1=i-2
+    // pre2=i-1
+    // new pre2 will be max(nums[i]+pre1,pre2)
     public int rob(int[] nums) {
-        if(nums.length==0)
-            return 0;
-        if(nums.length==1)
-            return nums[0];
-        if(nums.length==2)
-            return Math.max(nums[0],nums[1]);
-        nums[1]=Math.max(nums[0],nums[1]);
-        for(int i=2;i<nums.length;i++){
-            nums[i]=Math.max(nums[i-1],nums[i]+nums[i-2]);
+        int pre1=0;
+        int pre2=0;
+        for(int i=0;i<nums.length;i++){
+            int tmp=pre2;
+            pre2=Math.max(nums[i]+pre1,pre2);
+            pre1=tmp;
         }
-        return nums[nums.length-1];
+        return pre2;
     }
 }
 // @lc code=end
