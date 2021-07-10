@@ -6,6 +6,11 @@
 
 // @lc code=start
 class Solution {
+    // *** 
+    // check    
+    //          \  |  / 
+    //          .  Q  .
+    //          .  .  .
     List<List<String>> res=new ArrayList<List<String>>();
     public List<List<String>> solveNQueens(int n) {
         char[][] matrix=new char[n][n];
