@@ -16,7 +16,7 @@ class Solution {
     }
     private boolean solve(char[][] board,int i,int j){
         if(i==9)return true;
-        if(j>=9)return solve(board,i+1,0);
+        if(j==9)return solve(board,i+1,0);
         if(board[i][j]!='.')return solve(board,i,j+1);
         for(char k='1';k<='9';k++){
             if(valid(board,i,j,k)){

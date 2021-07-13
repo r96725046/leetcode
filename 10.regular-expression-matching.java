@@ -7,6 +7,10 @@
 // @lc code=start
 class Solution {
     // ****
+    // 1. '.' & matach single
+    // 2. if p.charAt(j-1)=='*'
+    //    1.match zero
+    //    2.match more (if j-2 match single)
     public boolean isMatch(String s, String p) {
         boolean[][] dp=new boolean[s.length()+1][p.length()+1];
         dp[0][0]=true;
