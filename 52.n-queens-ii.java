@@ -8,7 +8,8 @@
 class Solution {
     // ***
     // https://leetcode.wang/leetCode-52-N-QueensII.html
-    // 1.col+row 0~2n-2 
+    // 1.3 arr col n, d1 2n, d2 2n 
+    //   col+row 0~2n
     // 2.row-col -2~2 => row-col + n  1~2n-1 
     // 3.cols
     //      col         col
