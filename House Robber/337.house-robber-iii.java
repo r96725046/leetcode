@@ -21,6 +21,11 @@
  * }
  */
 class Solution {
+    // ***
+    // Array length 2
+    // arr[0]=>Rob = val+ left[1]+right[1]
+    // arr[1]=>Not rob, rob or not rob subtrees
+    //       = Max(left[0],left[1])+Max(right[0],right[1])
     public int rob(TreeNode root) {
         int[] res=dfs(root);
         return Math.max(res[0],res[1]);
