@@ -6,6 +6,9 @@
 
 // @lc code=start
 class RandomizedSet {
+    // ***
+    // 1.HashMap+List
+    // 2.remove last one
     HashMap<Integer,Integer> map;
     List<Integer> list;
     Random r;
