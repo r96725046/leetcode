@@ -22,10 +22,10 @@ class Solution {
                 if(dp[i-1][j-1]&&(p.charAt(j - 1) == s.charAt(i - 1) || p.charAt(j - 1) == '.')){
                     dp[i][j] = true;
                 } else if(p.charAt(j - 1) == '*'){
-                        if(dp[i][j-2])
-                            dp[i][j]=true;
-                        if (dp[i-1][j]&&(p.charAt(j-2)==s.charAt(i-1)||p.charAt(j-2)=='.'))
-                            dp[i][j]=true;
+                    if(dp[i][j-2])
+                        dp[i][j]=true;
+                    if (dp[i-1][j]&&(p.charAt(j-2)==s.charAt(i-1)||p.charAt(j-2)=='.'))
+                        dp[i][j]=true;
                 }else
                     dp[i][j]=false;
             }
