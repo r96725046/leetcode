@@ -33,14 +33,10 @@ class Solution {
             }
 
             StringBuilder sb =new StringBuilder();
-            while(!stack.isEmpty())
-                sb.append(stack.pop());
-            
-            String tmp=sb.toString();
-            sb=new StringBuilder();
-            for(int j=tmp.length()-1;j>=0;j--){
-                if(tmp.charAt(j)=='0'&&sb.length()==0)continue;
-                sb.append(tmp.charAt(j));   
+
+            for(char c:stack){
+                if(c=='0'&&sb.length()==0)continue;
+                sb.append(c);  
             }
             return sb.length()==0?"0":sb.toString();
     }
