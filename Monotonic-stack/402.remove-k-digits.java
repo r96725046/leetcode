@@ -7,7 +7,7 @@
 // @lc code=start
 class Solution {
     // ***
-    // 
+    // https://leetcode.com/tag/monotonic-stack/
     // whenever meet a digit which is less than the previous digit, discard the previous one
     // 1.while
     //     while(!stack.isEmpty()&&stack.peek()>c&&k>0)

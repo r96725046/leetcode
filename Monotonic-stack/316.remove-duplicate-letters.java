@@ -7,7 +7,8 @@
 // @lc code=start
 class Solution {
     // ****
-    //https://leetcode.com/problems/remove-duplicate-letters/discuss/76762/Java-O(n)-solution-using-stack-with-detail-explanation
+    // https://leetcode.com/tag/monotonic-stack/
+    // https://leetcode.com/problems/remove-duplicate-letters/discuss/76762/Java-O(n)-solution-using-stack-with-detail-explanation
     // O(MN) time: M is size of alphabet, like O(26*N) for this problem.
     // pre: stack holding previous char
     // post: how many char left after cur position
