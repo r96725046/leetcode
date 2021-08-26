@@ -12,7 +12,7 @@ class Solution {
     // 1.while
     //     while(!stack.isEmpty()&&stack.peek()>c&&k>0)
     // 2.if k > 0 remove stack end
-    // 3.remove leading zero
+    // 3."""remove leading zero"""
     // 4.if res="" return "0"
     public String removeKdigits(String num, int k) {
     
