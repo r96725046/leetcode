@@ -1,0 +1,3 @@
+https://leetcode.com/problems/sum-of-subarray-minimums/discuss/178876/stack-solution-with-very-detailed-explanation-step-by-step
+
+Simply put, a monotonically increasing stack is a stack that keeps the elements in the stack monotonically increasing.
