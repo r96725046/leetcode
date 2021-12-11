@@ -7,6 +7,7 @@
 // @lc code=start
 class Solution {
     //Kruskal's algorithm using Union-Find
+    //Add the shortest edge and detect cycle
     public int minCostConnectPoints(int[][] points) {
         
         PriorityQueue<int[]> q=new PriorityQueue<>((x,y)->x[0]-y[0]);
