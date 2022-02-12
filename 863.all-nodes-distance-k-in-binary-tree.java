@@ -16,6 +16,7 @@
  */
 class Solution {
     // 1.find target and ruturn distance
+    // Not found -1
     // 2.in the begining of dfs
     //     if(map.containsKey(root))length=map.get(root);
     HashMap<TreeNode,Integer> map=new HashMap<>();
@@ -31,7 +32,7 @@ class Solution {
         if(root==null)return -1;
         if(root.equals(target))
         {
-            map.put(root,0);
+            map.put(root,0);            
             return 0;
         }
 
