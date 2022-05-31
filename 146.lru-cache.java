@@ -6,40 +6,70 @@
 
 // @lc code=start
 class LRUCache {
-
-    int cap;
-    HashMap<Integer,Integer> map=new HashMap<>();
-    Queue<Integer> queue=new LinkedList<>();
-    //Queue.remove
+    class Node{
+        int key;
+        int val;
+        Node pre;
+        Node next;
+        public Node(int key,int val){
+            this.key=key;
+            this.val=val;
+        }
+    }
+    int cap=0;
+    int count=0;
+    Node head;
+    Node tail;
+    HashMap<Integer,Node> map;
     public LRUCache(int capacity) {
         cap=capacity;
         map=new HashMap<>();
-        queue=new LinkedList<>();
+        head=new Node(-1,-1);
+        tail=new Node(-1,-1);
+        head.next=tail;
+        tail.pre=head;
     }
-    
-    public int get(int key) {
-        if(map.containsKey(key))
-        {
-            int value=map.get(key);
-            queue.remove(key);
-            queue.offer(key);
-            return value;
-        }else
-            return -1;
+    private void addToHead(Node node){
+        Node tmp=head.next;
+        head.next=node;
+        node.pre=head;
+        node.next=tmp;
+        tmp.pre=node;
     }
-    
-    public void put(int key, int value) {
-        if(map.containsKey(key)){
-           int tmp=map.get(key);
-           queue.remove(key);
-        }
-        else if(map.size()==cap){
-            int curKey=queue.poll();
-            map.remove(curKey);
-        }
-        queue.offer(key);
-        map.put(key,value);
+    private void removeNode(Node node){
+        node.pre.next=node.next;
+        node.next.pre=node.pre;
+    }
 
+    public int get(int key) {
+        if(map.containsKey(key)){
+            Node node=map.get(key);
+            removeNode(node);
+            addToHead(node);
+            return node.val;
+        }else{
+            return -1;
+        }
+    }
+    
+    public void put(int key, int val) {
+        if(map.containsKey(key)){
+            Node node=map.get(key);
+            node.val=val;
+            removeNode(node);
+            addToHead(node);
+        }else{
+            Node node=new Node(key,val);
+            if(count==cap){
+                Node pre=tail.pre;
+                removeNode(pre);
+                map.remove(pre.key);
+                count--;
+            }
+            count++;
+            addToHead(node);
+            map.put(key,node);
+        }
     }
 }
 

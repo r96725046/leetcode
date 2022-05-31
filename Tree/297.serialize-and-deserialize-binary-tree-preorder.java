@@ -17,7 +17,7 @@
 import java.util.*;
 public class Codec {
     // ***
-    // dfs - queue 
+    // dfs prefix - queue 
     // left and right
     // Encodes a tree to a single string.
     public String serialize(TreeNode root) {
@@ -51,7 +51,7 @@ public class Codec {
         if(s.equals("#"))
             return null;
 
-        TreeNode node=new TreeNode(Integer.valueOf(s));
+        TreeNode node=new TreeNode(Integer.parseInt(s));
         node.left=buildTree(q);
         node.right=buildTree(q);
         return node;

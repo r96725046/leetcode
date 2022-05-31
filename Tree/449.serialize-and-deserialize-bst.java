@@ -37,18 +37,20 @@ public class Codec {
         for(String v:values)
             queue.offer(v);
         
-        return deserializer(queue,Integer.MIN_VALUE,Integer.MAX_VALUE);
+        return deserializer(queue,Long.MIN_VALUE,Long.MAX_VALUE);
     }
-    private TreeNode deserializer(Queue<String> queue,int lo,int hi){
+    private TreeNode deserializer(Queue<String> queue,long min,long max){
 
         if(queue.isEmpty())return null;
         String s=queue.peek();
-        int v=Integer.parseInt(s);
-        if(v<lo||v>hi)return null;
-        TreeNode node=new TreeNode(v);
+        // check
+        int val=Integer.parseInt(s);
+        if(val<=min||val>=max)return null;
+        TreeNode node=new TreeNode(val);
+        //
         queue.poll();
-        node.left=deserializer(queue,lo,v);
-        node.right=deserializer(queue,v,hi);
+        node.left=deserializer(queue,min,val);
+        node.right=deserializer(queue,val,max);
         return node;
     }
 }

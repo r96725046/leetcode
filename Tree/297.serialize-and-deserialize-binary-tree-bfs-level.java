@@ -17,7 +17,7 @@
 import java.util.*;
 public class Codec {
     // ***
-    // bfs - queue
+    // bfs level - queue
     // Encodes a tree to a single string.
     public String serialize(TreeNode root) {
         if(root==null)return "";
@@ -25,15 +25,17 @@ public class Codec {
         Queue<TreeNode> q=new LinkedList<>();
         q.offer(root);
         while(!q.isEmpty()){
-            TreeNode node=q.poll();
-            if(node==null){
-                sb.append("#").append(",");
-                continue;
+            int size=q.size();
+            for(int i=0;i<size;i++){
+                TreeNode node=q.poll();
+                if(node==null){
+                    sb.append("#").append(",");
+                    continue;
+                }
+                sb.append(node.val+",");
+                q.offer(node.left);
+                q.offer(node.right);
             }
-            sb.append(node.val+",");
-            q.offer(node.left);
-            q.offer(node.right);
-
         }
         
         return sb.toString();
@@ -46,17 +48,21 @@ public class Codec {
         String[] arr=data.split(",");
         TreeNode head=new TreeNode(Integer.valueOf(arr[0]));
         q.offer(head);
-   
-        for(int i=1;i<arr.length;i++){
-            TreeNode parent=q.poll();
-            if(!arr[i].equals("#")){
-                parent.left=new TreeNode(Integer.valueOf(arr[i]));
-                q.offer(parent.left);
-            }
-            i++;
-            if(!arr[i].equals("#")){
-                parent.right=new TreeNode(Integer.valueOf(arr[i]));
-                q.offer(parent.right);
+        int i=1;
+        while(i<arr.length){
+            int size=q.size();
+            for(int j=0;j<size;j++){
+                TreeNode parent=q.poll();
+                if(!arr[i].equals("#")){
+                    parent.left=new TreeNode(Integer.valueOf(arr[i]));
+                    q.offer(parent.left);
+                }
+                i++;
+                if(!arr[i].equals("#")){
+                    parent.right=new TreeNode(Integer.valueOf(arr[i]));
+                    q.offer(parent.right);
+                }
+                i++;
             }
         }
 
