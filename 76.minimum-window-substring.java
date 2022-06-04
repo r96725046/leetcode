@@ -11,49 +11,46 @@ class Solution {
     //3. if counter==0 l++ =>map++ counter++ 
     public String minWindow(String s, String t) {
         if(s.length()<t.length())return"";
-        HashMap<Character,Integer> map = new HashMap<>();
-
+        HashMap<Character,Integer> need=new HashMap<>();
         for(int i=0;i<t.length();i++){
             char c=t.charAt(i);
-            int v=0;
-            if(map.containsKey(c))
-                v=map.get(c);
-            map.put(c,v+1);
+            if(need.containsKey(c)){
+                need.put(c,need.get(c)+1);
+            }else{
+                need.put(c,1);
+            }
         }
-        int count=map.size();
-
-        int l=0;
-        int r=0;
+        HashMap<Character,Integer> win=new HashMap<>();
+        int count=0;
+        int j=0;
         int len=Integer.MAX_VALUE;
-        int head=0;
-        while(r<s.length()){
-
-            char c=s.charAt(r);
-            if(map.containsKey(c)){
-                map.put(c,map.get(c)-1);
-                if(map.get(c)==0)count--;
+        int start=0;
+        String res="";
+        for(int i=0;i<s.length();i++){
+            char c=s.charAt(i);
+            if(win.containsKey(c)){
+                    win.put(c,win.get(c)+1);
+                }else{
+                    win.put(c,1);
             }
-            r++;
-            while(count==0){
+            if(need.containsKey(c)&&win.get(c).equals(need.get(c)))
+                count++;
+            while(count==need.size()){
+                if(i-j+1<len){
+                    len=i-j+1;
+                    start=j;
+                    res=s.substring(j,i+1);
+                }
+                c=s.charAt(j);
                
-                c=s.charAt(l);
-                if(map.containsKey(c)){
-                    map.put(c,map.get(c)+1);
-                    if(map.get(c)>0){
-                        count++;      
-                    }
-                }
-                if(r-l<len){
-                    len=r-l;
-                    head=l;
-                }
-                l++;
+                if(need.containsKey(c)&&win.get(c).equals(need.get(c)))
+                        count--;
+                win.put(c,win.get(c)-1);
+                j++;
             }
-           
         }
-        if(len==Integer.MAX_VALUE)
-            return "";
-        return s.substring(head,head+len);
+        return res;
+
     }
 }
 // @lc code=end

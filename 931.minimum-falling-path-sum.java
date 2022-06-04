@@ -22,8 +22,8 @@ class Solution {
             }
         }
         int min=Integer.MAX_VALUE;
-        for(int j=0;j<matrix[0].length;j++){
-            min=Math.min(min,sum[matrix.length-1][j]);
+        for(int j=0;j<sum.length;j++){
+            min=Math.min(min,sum[sum.length-1][j]);
         }
         return min;
     }
