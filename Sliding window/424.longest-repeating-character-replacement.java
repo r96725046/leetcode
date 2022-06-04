@@ -6,6 +6,7 @@
 
 // @lc code=start
 class Solution {
+    //j-i+1-max>k
     public int characterReplacement(String s, int k) {
         int i=0;
         int res=0;
