@@ -43,7 +43,6 @@ class Solution {
             Node head=map.get(cur.val);
             List<Node> list=cur.neighbors;
             for(Node sub:list){
-
                 Node newNode;
                 if(map.containsKey(sub.val)){
                     newNode=map.get(sub.val);

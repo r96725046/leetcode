@@ -22,31 +22,28 @@ class Solution {
         }
         HashMap<Character,Integer> win=new HashMap<>();
         int count=0;
-        int j=0;
         int len=Integer.MAX_VALUE;
         int start=0;
         String res="";
         for(int i=0;i<s.length();i++){
             char c=s.charAt(i);
             if(win.containsKey(c)){
-                    win.put(c,win.get(c)+1);
-                }else{
-                    win.put(c,1);
+                win.put(c,win.get(c)+1);
+            }else{
+                win.put(c,1);
             }
             if(need.containsKey(c)&&win.get(c).equals(need.get(c)))
                 count++;
             while(count==need.size()){
-                if(i-j+1<len){
-                    len=i-j+1;
-                    start=j;
-                    res=s.substring(j,i+1);
+                if(i-start+1<len){
+                    len=i-start+1;
+                    res=s.substring(start,i+1);
                 }
-                c=s.charAt(j);
-               
+                c=s.charAt(start);
                 if(need.containsKey(c)&&win.get(c).equals(need.get(c)))
-                        count--;
+                    count--;
                 win.put(c,win.get(c)-1);
-                j++;
+                start++;
             }
         }
         return res;
