@@ -10,28 +10,33 @@ class Solution {
     //2.List<List<Integer>> graph=new ArrayList<List<Integer>>();
     //3. edge 0 -> course, edge 1 -> prerequisite
     //4. Check edges of array List in incoming array
+    //https://leetcode.cn/problems/course-schedule/solution/course-schedule-tuo-bu-pai-xu-bfsdfsliang-chong-fa/
     public boolean canFinish(int numCourses, int[][] prerequisites) {
         
         int[] in=new int[numCourses];
         List<List<Integer>> graph=new ArrayList<>();
-
+        //Build graph
         for(int i=0;i<numCourses;i++)
             graph.add(new ArrayList<Integer>());
         for(int i=0;i<prerequisites.length;i++){
             int[] edge=prerequisites[i];
+            //in
             in[edge[0]]++;
             graph.get(edge[1]).add(edge[0]);
         }
+        //Start point
         Queue<Integer> q=new LinkedList<Integer>();
         for(int i=0;i<in.length;i++){
             if(in[i]==0)
                 q.offer(i);
         }
+
         while(!q.isEmpty()){
 
             int cur=q.poll();
             numCourses--;
             for(int next:graph.get(cur)){
+                //out
                 in[next]--;
                 if(in[next]==0)
                     q.offer(next);
