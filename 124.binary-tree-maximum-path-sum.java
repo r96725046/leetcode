@@ -24,6 +24,7 @@ class Solution {
     // ***
     // 1.return path sum max (root,root+l,root+r) 
     // 2.max= max (max,max(root,root+l+r,root+l,root+r));
+    // 3. 4 cases
     int max=Integer.MIN_VALUE;
     public int maxPathSum(TreeNode root) {
             dfs(root);

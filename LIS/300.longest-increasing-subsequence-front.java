@@ -9,8 +9,9 @@ class Solution {
     // ***
     // n^2 dp
     // nlogn
-    // 1.i,j from end or start,dp[i]=Math.max(dp[i],dp[j]+1);
-    // 2.max(max,dp[i])
+    // 1.start from 1
+    // 2.loop compare if num[i]>num[j]
+    //   max(nun[j]+1,nums[i])
     public int lengthOfLIS(int[] nums) {
         int[] dp=new int[nums.length];
         int max=1;
