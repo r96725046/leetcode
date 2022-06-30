@@ -14,25 +14,25 @@ class Solution {
         int res=dfs(nums,0,0,target);
         return res;
     }
-
-    private int dfs(int[] nums,long sum,int index,int target){
+    public int dfs(int[] nums,int index,int cur,int target){
 
         if(index==nums.length){
-            if(sum==target)
+            if(cur==target){
                 return 1;
-            else 
+            }else
                 return 0;
         }
-        String key=index+","+sum;
+        String key=index+"#"+cur;
         if(map.containsKey(key))
             return map.get(key);
-        
-        int add=dfs(nums,sum+nums[index],index+1,target);
-        int minus=dfs(nums,sum-nums[index],index+1,target);
-        map.put(key,add+minus);
-        
-        return map.get(key);
+
+       
+        int add=dfs(nums,index+1,cur+nums[index],target);
+        int minus=dfs(nums,index+1,cur-nums[index],target);
+        map.put(index+"#"+cur,add+minus);
+        return add+minus;
     }
+   
 }
 // @lc code=end
 
