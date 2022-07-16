@@ -16,7 +16,7 @@ class Solution {
             char c=s.charAt(i);
             count[c-'A']++;
             max=Math.max(max,count[c-'A']);
-            while(i-start+1-max>k){
+            if(i-start+1-max>k){
                 count[s.charAt(start)-'A']--;
                 start++;
             }

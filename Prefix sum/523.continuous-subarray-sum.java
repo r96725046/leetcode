@@ -6,6 +6,7 @@
 
 // @lc code=start
 class Solution {
+    //a multiple of k
     public boolean checkSubarraySum(int[] nums, int k) {
         int[] v=new int[nums.length+1];
         for(int i=1;i<v.length;i++){
