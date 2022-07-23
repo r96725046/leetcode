@@ -6,6 +6,7 @@
 
 // @lc code=start
 class Solution {
+    //Merge two sort arry
     public int[] sortedSquares(int[] nums) {
          int[] res=new int[nums.length];
         int l=0;

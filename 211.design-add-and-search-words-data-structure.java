@@ -5,62 +5,53 @@
  */
 
 // @lc code=start
-class TrieNode{
 
-    TrieNode[] nodes;
-    boolean isWord=false;
-    public TrieNode(){
-        nodes=new TrieNode[26];
-    }
-
-}
 class WordDictionary {
-    TrieNode root;
+    class Node{
+        Node[] nodes;
+        boolean isWord=false;
+        public Node(){
+            nodes=new Node[26];
+        }
+    }
+    Node root;
     /** Initialize your data structure here. */
     public WordDictionary() {
-        root=new TrieNode();
+        root=new Node();
     }
     
     public void addWord(String word) {
-        TrieNode runner=root;
+        Node cur=root;
         for(int i=0;i<word.length();i++){
-
             int v=word.charAt(i)-'a';
-            if(runner.nodes[v]==null)
-                runner.nodes[v]=new TrieNode();
-            if(i==word.length()-1)
-                runner.nodes[v].isWord=true;
-            runner=runner.nodes[v];
+            if(cur.nodes[v]==null)
+                cur.nodes[v]=new Node();
+            cur=cur.nodes[v];
         }
-
+        cur.isWord=true;
     }
     
-    public boolean search(String word) {
-       TrieNode runner=root;
-       return dfs(word,0,runner);
+    public boolean search(String word) {;
+       return dfs(word,0,root);
     }
-    public boolean dfs(String word,int index,TrieNode node){
-
-        if(index==word.length()){
-            return node.isWord;
+    public boolean dfs(String word,int index,Node root){
+        if(index==word.length())
+            return root.isWord;
+        char c=word.charAt(index);
+        if(c!='.'){
+            if(root.nodes[c-'a']!=null)
+                return dfs(word,index+1,root.nodes[c-'a']);
         }else{
-            char c=word.charAt(index);
-            if(c=='.'){
-                
-                for(int i=0;i<node.nodes.length;i++)
-                {
-                    if(node.nodes[i]!=null&&dfs(word,index+1,node.nodes[i]))
+            for(int i=0;i<root.nodes.length;i++){
+                Node[] arr=root.nodes;
+                if(arr[i]!=null){
+                    if(dfs(word,index+1,arr[i]))
                         return true;
                 }
-                return false;
-            }else{
-                int v=c-'a';
-                if(node.nodes[v]==null)
-                    return false;
-                else
-                    return dfs(word,index+1,node.nodes[v]);
             }
+
         }
+        return false;
     }
 }
 

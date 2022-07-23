@@ -7,33 +7,23 @@
 // @lc code=start
 class Solution {
     // ****
-    // 1.remove index <= i-k from queue head
-    // 2.remove item < cur from queue end
-    // 3.put i to queue
-    // 4.if i>=k-1, 
-    //   put nums[queue.peek()] to an int array or alist 
+    // 1.nums[q.peekLast()] and q.pollLast()
+    // 2.put i to queue
+    // 3.poll if peek<i-k
+    // 4.i+1>=k set res
     public int[] maxSlidingWindow(int[] nums, int k) {
-        Deque<Integer> d=new LinkedList<>();
-        List<Integer> list=new ArrayList<Integer>();
+        Deque<Integer> q=new LinkedList<>();
+        int[] res=new int[nums.length-k+1];
         for(int i=0;i<nums.length;i++){
-
-            while(d.size()>0&&d.peekFirst()<=i-k){
-                d.pollFirst();
+            while(!q.isEmpty()&&nums[q.peekLast()]<nums[i]){
+                q.pollLast();
             }
-            while(d.size()>0){
-                int j=d.peekLast();
-                if(nums[i]>nums[j]){
-                    d.pollLast();
-                }else
-                    break;
-            }
-            d.offerLast(i);
-            if(i>=k-1)
-                list.add(nums[d.peekFirst()]);
+            q.offer(i);
+            if(q.peek()<=i-k)
+                q.poll();
+            if(i+1>=k)
+                res[i-k+1]=nums[q.peek()];
         }
-        int[] res=new int[list.size()];
-        for(int i=0;i<list.size();i++)
-            res[i]=list.get(i);
         return res;
     }
 }

@@ -5,61 +5,56 @@
  */
 
 // @lc code=start
-class Node{
-        int L=26;
-        Node[] arr;
-        boolean isWord;
-        public Node()
-        {
-            arr=new Node[L];
-        }
-}
+
 class Trie {
     // *** 
     //boolean isWord
-    Node head;
+    class Node{
+        Node[] nodes;
+        boolean isWord;
+        public Node()
+        {
+            nodes=new Node[26];
+        }
+    }
+    Node root;
     /** Initialize your data structure here. */
     public Trie() {
-        head=new Node();
+        root=new Node();
     }
     
     /** Inserts a word into the trie. */
     public void insert(String word) {
-            Node cur=head;
-            for(int i=0;i<word.length();i++){
-                int id=word.charAt(i)-'a';
-                if(cur.arr[id]==null){
-                    Node n=new Node();
-                    cur.arr[id]=n;
-                }
-                cur=cur.arr[id];
-            }
-            cur.isWord=true;
+        Node cur=root;
+        for(int i=0;i<word.length();i++){
+            int v=word.charAt(i)-'a';
+            if(cur.nodes[v]==null)
+                cur.nodes[v]=new Node();
+            cur=cur.nodes[v];
+        }
+        cur.isWord=true;
     }
-    
+
     /** Returns if the word is in the trie. */
     public boolean search(String word) {
-        Node cur=head;
-        
+        Node cur=root;
         for(int i=0;i<word.length();i++){
-            int id=word.charAt(i)-'a';
-            if(cur.arr[id]==null)
+            int v=word.charAt(i)-'a';
+            if(cur.nodes[v]==null)
                 return false;
-            cur=cur.arr[id];
+            cur=cur.nodes[v];
         }
         return cur.isWord;
     }
     
     /** Returns if there is any word in the trie that starts with the given prefix. */
     public boolean startsWith(String prefix) {
-        Node[] cur=head.arr;
+        Node cur=root;
         for(int i=0;i<prefix.length();i++){
-            
-            int id=prefix.charAt(i)-'a';
-            if(cur[id]==null)
+            int v=prefix.charAt(i)-'a';
+            if(cur.nodes[v]==null)
                 return false;
-            else
-                cur=cur[id].arr;
+            cur=cur.nodes[v];
         }
         return true;
     }
