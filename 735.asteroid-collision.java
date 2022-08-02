@@ -6,34 +6,36 @@
 
 // @lc code=start
 class Solution {
+    // 1.v>0
+    // 2.v<0
+    // 2.1 while abs v > stack.peek &&stack.peek>0
+    // 2.2 if v==stack.peek
+    // 2.3 if stack is empty or stack.peek<0
+    // 2.4 stack.peek > abs v
     public int[] asteroidCollision(int[] asteroids) {
         
         Stack<Integer> stack=new Stack<>();
         
-        for(int i=0;i<asteroids.length;i++){
-            if(stack.isEmpty())
-                stack.push(asteroids[i]);
-            else{
-                int top=asteroids[i];
-                //if 1
-                while(!stack.isEmpty()&&stack.peek()>0&&top<0){
-                    int diff=stack.peek()-Math.abs(top);
-                    if(diff<0)
-                        stack.pop();
-                    else
-                        break;
-                }
-                // if 2
-                if(stack.isEmpty()||stack.peek()<0||top>0)stack.push(top);
-                // if 3
-                else  if(stack.peek()+top==0)stack.pop();
+        for(int v:asteroids){
+            if(v>0)
+            {
+                stack.push(v);
+            }else{
 
+                while(!stack.isEmpty()&&stack.peek()>0&&stack.peek()<Math.abs(v)){
+                    stack.pop();
+                }
+                if(stack.isEmpty()||stack.peek()<0)
+                    stack.push(v);
+                else if(stack.peek()+v==0)
+                    stack.pop();
+                else
+                    continue;
             }
         }
         int[] res=new int[stack.size()];
         for(int i=res.length-1;i>=0;i--)
             res[i]=stack.pop();
-
         return res;
     }
 }
