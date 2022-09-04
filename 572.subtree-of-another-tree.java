@@ -28,8 +28,7 @@ class Solution {
         if(isSame(root,subRoot))
             return true;
         else
-            return isSubtree(root.left,subRoot)||isSubtree(root.right,subRoot
-            );
+            return isSubtree(root.left,subRoot)||isSubtree(root.right,subRoot);
     }
     private boolean isSame(TreeNode left,TreeNode right){
         if(left==null&&right==null)

@@ -17,19 +17,17 @@ class Solution {
         //2. newUnterval after cur Interval
         //3. overlap
         //4. add cur
-        for(int[] interval:intervals){
+        for(int[] intv:intervals){
 
-            if(cur[1]<interval[0]){
+            if(cur[1]<intv[0]){
                 in.add(cur);
-                cur=interval;
-            }else if(interval[1]<cur[0]){
-                in.add(interval);
+                cur=intv;
+            }else if(intv[1]<cur[0]){
+                in.add(intv);
             }else{
-                cur[0]=Math.min(cur[0],interval[0]);
-                cur[1]=Math.max(cur[1],interval[1]);
+                cur[0]=Math.min(cur[0],intv[0]);
+                cur[1]=Math.max(cur[1],intv[1]);
             }
-
-
         }
         //add cur
         in.add(cur);

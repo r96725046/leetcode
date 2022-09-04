@@ -14,14 +14,14 @@ class Solution {
         int[] cur=intervals[0];
         int merged=0;
         for(int i=1;i<intervals.length;i++){
-            int[] interval=intervals[i];
-            if(cur[0]<=interval[0]&&cur[1]>=interval[1]){
+            int[] intv=intervals[i];
+            if(cur[0]<=intv[0]&&cur[1]>=intv[1]){
                 merged++;
-            }else if(cur[1]<interval[0]){
-                cur=interval;
+            }else if(cur[1]<intv[0]){
+                cur=intv;
             }else{
-                cur[0]=Math.min(cur[0],interval[0]);
-                cur[1]=Math.max(cur[1],interval[1]);
+                cur[0]=Math.min(cur[0],intv[0]);
+                cur[1]=Math.max(cur[1],intv[1]);
             }
         }
         return intervals.length-merged;

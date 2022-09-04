@@ -14,20 +14,20 @@ class Solution {
         if(intervals.length==0)return intervals;
         Arrays.sort(intervals,(x,y)->Integer.compare(x[0],y[0]));
 
-        int[] interval=intervals[0];
+        int[] cur=intervals[0];
         List<int[]> list=new ArrayList<>();
         for(int i=1;i<intervals.length;i++){
-            int[] cur=intervals[i];
-            if(interval[1]>=cur[0])
+            int[] intv=intervals[i];
+            if(cur[1]>=intv[0])
             {
-                interval[0]=Math.min(cur[0],interval[0]);
-                interval[1]=Math.max(cur[1],interval[1]);
+                cur[0]=Math.min(cur[0],intv[0]);
+                cur[1]=Math.max(cur[1],intv[1]);
             }else{
-                list.add(interval);
-                interval=cur;
+                list.add(cur);
+                cur=intv;
             }
         }
-        list.add(interval);
+        list.add(cur);
         int[][] res=new int[list.size()][2];
         for(int i=0;i<res.length;i++)
             res[i]=list.get(i);
