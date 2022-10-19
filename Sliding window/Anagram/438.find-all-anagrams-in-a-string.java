@@ -7,31 +7,32 @@
 // @lc code=start
 class Solution {
     public List<Integer> findAnagrams(String s, String p) {
-        int[] need=new int[26];
-        int[] w=new int[26];
-        int unique=0;
+        int[] pFreq=new int[26];
+        int need=0;
         for(int i=0;i<p.length();i++){
-            if(need[p.charAt(i)-'a']==0)
-                unique++;
-            need[p.charAt(i)-'a']++;
+            int c=p.charAt(i)-'a';
+            if(pFreq[c]==0)
+                need++;
+            pFreq[c]++;
         }
 
+        int[] sFreq=new int[26];
         List<Integer> res=new ArrayList<>();
         int start=0;
         int count=0;
         for(int i=0;i<s.length();i++){
-            char c=s.charAt(i);
-            w[c-'a']++;
-            
-            if(need[c-'a']>0&&w[c-'a']==need[c-'a'])
+            int c=s.charAt(i)-'a';
+            sFreq[c]++;
+            if(sFreq[c]>0&&sFreq[c]==pFreq[c])
                 count++;
-            while(count==unique){
-                if(i-start+1==p.length())
+            while(count==need){
+                if(i-start+1==p.length()){
                     res.add(start);
-                c=s.charAt(start);
-                if(need[c-'a']>0&&w[c-'a']==need[c-'a'])
+                }
+                c=s.charAt(start)-'a';
+                if(sFreq[c]>0&&sFreq[c]==pFreq[c])
                     count--;
-                w[c-'a']--;
+                sFreq[c]--;
                 start++;
             }
         }

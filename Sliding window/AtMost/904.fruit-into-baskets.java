@@ -15,14 +15,13 @@ class Solution {
             if(arr[fruits[i]]==0)
                 count++;
             arr[fruits[i]]++;
-            if(count<=2)
-                max=Math.max(max,i-start+1);
             while(count>2){
                 arr[fruits[start]]--;
                 if(arr[fruits[start]]==0)
                     count--;
                 start++;
             }
+            max=Math.max(max,i-start+1);
         }
         return max;
     }
